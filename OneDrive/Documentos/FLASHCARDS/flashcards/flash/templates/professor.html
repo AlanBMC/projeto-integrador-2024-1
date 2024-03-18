@@ -1,0 +1,474 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/principal.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <title>Flashs</title>
+</head>
+
+<body>
+    <!-- MENU INICIO FZER ELE DE BASE -->
+
+    <div class="page-wrapper chiller-theme toggled">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="">flashs</a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="sidebar-header">
+                    <div class="user-pic">
+                        <img src="{{  foto_perfil }}" width="30" height="40" alt="User picture" />
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">
+
+                            <strong>
+
+                                {{request.user.username}}
+                                </a>
+                            </strong>
+                        </span>
+                        <!-- -editar:  precisa?-->
+                        <span class="user-role"></span>
+                        <span class="user-status">
+                            <i class="fa fa-circle"></i>
+                            <!-- -editar: para outros tipos de status -->
+                            <span>Online</span><br>
+                            <span>{{tipo_user}}</span>
+                        </span>
+                    </div>
+                </div>
+                <!-- sidebar-header  -->
+                <div class="sidebar-search">
+                    <div>
+                        <div class="input-group">
+                            <input type="text" class="form-control search-menu" placeholder="Search..." />
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- sidebar-search  -->
+                <div class="sidebar-menu">
+                    <ul>
+                        <li class="header-menu">
+                            <span>Minhas paginas</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <span>Meus Cards</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+
+                                    <button class="add-page" onclick="abremodal_addpg_card_aluno()">+</button>
+                                    {% for paginas_card in paginas_cards%}
+                                    <li>
+                                        <a href="{% url 'paginas' paginas_card.id %}">
+                                            {{paginas_card.titulo}}
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </li>
+
+
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="far fa-gem"></i>
+                                <span>Meus Simulados</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <button class="add-page"
+                                        onclick="abre_modal_add_pagina_simulado_e_pergunta()">+</button>
+                                    {% for simulados in paginas_simulados %}
+
+                                    <li>
+                                        <a href="{% url 'simulado' simulados.id %}">
+                                            {{simulados.titulo}}
+                                        </a>
+                                    </li>
+
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="header-menu">
+                            <span>Sobre alunos</span>
+                        </li>
+
+
+                        <li class="sidebar">
+                            <a href="{% url 'estatisticas_prof' %}">
+                                <i class="fa-brands fa-think-peaks"></i>
+                                <span>Estatisticas alunos</span>
+                            </a>
+                        </li>
+
+
+                        <li class="sidebar">
+                            <a href="{% url 'add_alunos' %}">
+                                <i class="fa fa-book"></i>
+                                <span>Add alunos</span>
+                            </a>
+                        </li>
+                        <li class="header-menu">
+                            <span>ENEM - SIMULADÃO</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-book"></i>
+                                <span>ANO'S</span>
+                                <!--<span class="badge badge-pill badge-danger">{{ simulados_compartilhados.count }}</span>-->
+                            </a>
+                            <div class="sidebar-submenu">
+
+
+                                <ul>
+                                    <li>
+                                        <a href="{%url 'enem' 20231 %}">Enem 2023- dia 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="{%url 'enem' 20232 %}">Enem 2023- dia 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="{%url 'enem' 20221 %}">Enem 2022- dia 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="{%url 'enem' 20222 %}">Enem 2022- dia 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="{%url 'enem' 20211 %}">Enem 2021- dia 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="{%url 'enem' 20212 %}">Enem 2021- dia 2</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+            <!-- sidebar-content  -->
+            <div class="sidebar-footer">
+                <a href="{% url 'estatisticas_simulado' %}">
+                    <i class="fa-brands fa-think-peaks"></i>
+                    <span class="badge badge-pill badge-warning notification"></span>
+                </a>
+                <a href="{% url 'configurar' %}">
+                    <i class="fa fa-cog"></i>
+                    <span class="badge-sonar"></span>
+                </a>
+                <a href="{%url 'logout' %}">
+                    <i>
+                        <button type="submit" class="fa fa-power-off sair" style="
+                   background-color: rgba(157, 156, 156, 0);
+                    color: rgb(133, 165, 165);"></button>
+                    </i>
+                </a>
+
+            </div>
+            <!-- pega o ID da pagina e no javascritp faz os procedimentos para adicionar o card a pagina correta. -->
+
+
+        </nav>
+
+        <div class="container">
+            <div class="add-flashcard-con">
+                <!--//caso eu queria limitar o uso do usuario remover este botão-->
+                <button id="add-flashcard" onclick="abre_modal_add_cards()"> + </button>
+            </div>
+
+
+            <!-- ------------------MODALS------------------  -->
+
+            <!-- MODAL: APARECE PERGUNTA E RESPOSTA : CARD-->
+            <div style="position:absolute; left: 15%;" id="card-con">
+                <div class="card-list-container">
+                    {% for card in cards %}
+                    <div class="card">
+                        <strong> {{card.perguntas}}</strong>
+                        <button type="button" onclick="ver_resposta_card_aluno('{{card.id}}')"> Resposta </button>
+                        <div id="ver_resposta_{{card.id}}" class="resposta" style="display: none;">
+                            <p> {{card.respostas}}</p>
+                        </div>
+                        <!-----------Edita card -->
+                        <!-- botao para editar -->
+                        <div class="buttons-con">
+                            <button class="edit" type="submit"
+                                onclick="abre_modal_edit_cards('{{card.id}}', '{{card.perguntas}}', '{{card.respostas}}')"
+                                id="modal_edit_cards"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <!---------------fim Edita card -->
+                            <!-- delete card -->
+                            <button type="button"
+                                onclick="abre_modal_delete_card_aluno('{{card.id}}', '{{card.pagina.id}}')"
+                                class="delete"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- MODAL: FIM MODAL APARECE PERGUNTA E RESPOSTA: CARD -->
+
+
+
+
+
+
+        <!-------------------MODAL EDIT CARD---------------->
+
+
+        <form action="{% url 'edit_cards' %}" method="POST"> {% csrf_token %}
+
+            <div style="display:none; position: relative;   width: 90vw;
+                                                                        max-width: 34em;
+                                                                        flex-direction: column;
+                                                                        justify-content: center;
+                                                                        background-color: floralwhite;
+                                                                        position: absolute;
+                                                                        
+                                                                        align-items: center;
+                                                                        transform: translate(-50%, -50%);
+                                                                        top: 50%;
+                                                                        left: 50%;
+                                                                        padding: 3em 2em;
+                                                                        border-radius: 0.6em;
+                                                                        box-shadow: 0 1em 2em rgba(28, 0, 80, 0.21);"
+                id="modal_edit_card_aluno">
+                <button type="button" onclick="fecha_modal_edit_card()" class="close-modal-btn"><i
+                        class="fa-solid fa-xmark"></i></button>
+                <div class="row">
+                    <label for="">Pergunta:</label><br>
+                    <textarea name="pergunta_editada" id="pergunta_card" cols="4" rows="4"></textarea>
+                    <label for="">Resposta:</label><br>
+                    <textarea name="resposta_editada" id="resposta_card" cols="4" rows="4"></textarea>
+                    <input type="hidden" id="card_id" name="card_id">
+                    <input type="hidden" id="paginaID" name="pagina_id" value="{{ pagina_atual }}">
+
+                    <div style="position: relative; left: 27%; width: 200px; ">
+                        <button type="submit" class="btn btn-success" style="border-radius: 5px;"
+                            onclick="fecha_modal_edit_card()">Salvar</button>
+                        <button type="button" class="btn btn-secondary"
+                            onclick="fecha_modal_edit_card()">Cancelar</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+        <!-- ----------------MODAL: FIM EDIT CARD----------------- -->
+
+        <!-- -------------MODAL: DELETE CARD ---------------------->
+        <div id="modal_delete_card" style="display: none; top: 50%;">
+            <div
+                style="position: absolute; justify-items: center; top: 30%; left: 35%; width: 500px; max-width: 60%; background-color: bisque; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">
+                <form action="{% url 'delete_card' %}" method="POST">{% csrf_token %}
+
+                    <input type="hidden" name="id_pagina_do_card" id="id_pagina_do_card">
+                    <input type="hidden" name="id_card" id="id_card">
+                    <h3>Tem certeza que deseja excluir a pagina?</h3>
+
+                    <p>Todas as informações seram perdidas</p>
+                    <button type="button" onclick="delete_card_fecha_modal()"
+                        class="btn btn-secondary">Cancelar</button>
+                    <button type="submit" onclick="delete_card_fecha_modal()" class="btn btn-danger">Excluir</button>
+                </form>
+            </div>
+        </div>
+        <!--------------- MODAL: FIM DELETE CARD--------------------------->
+
+
+
+
+
+
+
+
+        <!-- ------------------MODALS: add pagina card------------------  -->
+        <div id="modal_add_pg_card"
+            style="display: none; position:relative; top: -50px;  left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 999;">
+            <div
+                style="position: absolute;   left: 30%;  width: 400px; max-width: 100%; background-color: rgba(183, 183, 183, 0.538); padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">
+                <div>
+
+                    <form action="{% url 'add_pagina_card' %}" method="POST"> {% csrf_token %}
+                        <div class="mb-2">
+                            <label for="message-text" class="col-form-label">De um topico para a pagina de
+                                FLASH-CARD's</label>
+                            <textarea class="form-control" name="titulo_pg_card"></textarea>
+                        </div>
+                        <div class="mb-2">
+                            <label for="message-text" class="col-form-label">Adicione uma pergunta</label>
+                            <textarea class="form-control" name="pergunta_card"></textarea>
+
+                        </div>
+                        <div class="mb-2">
+                            <label for="message-text" class="col-form-label">Adicione uma pergunta facil de
+                                memorizar</label>
+                            <textarea class="form-control" name="resposta_card"></textarea>
+
+                        </div>
+                        <div style="position: relative; left: 27%; width: 200px; ">
+
+                            <button type="submit" class="btn btn-success" style="border-radius: 5px;"
+                                onclick="fechamodal_addpg_aluno()">enviar</button>
+                            <button type="button" class="btn btn-secondary"
+                                onclick="fechamodal_addpg_aluno()">Cancelar</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ------------------MODALS: fim modal add pagina CARD------------------  -->
+
+
+    <!-- MODAL: ADD FLASH CARDS -->
+    <div id="modal_add_flashcard"
+        style="display: none; position:relative; top: -50px;  left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 999;">
+
+        <div
+            style="position: absolute;   left: 35%;  width: 400px; max-width: 100%; background-color: rgba(183, 183, 183, 0.538); padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">
+            <form action="{% url 'add_cards' %}" method="POST"> {% csrf_token %}
+
+                <div class="mb-2">
+                    <label for="message-text" class="col-form-label">Adicione uma pergunta</label>
+                    <textarea class="form-control" name="pergunta_card"></textarea>
+                </div>
+
+                <div class="mb-2">
+                    <label for="message-text" class="col-form-label">Adicione uma pergunta facil de
+                        memorizar</label>
+                    <textarea class="form-control" name="resposta_card"></textarea>
+                </div>
+                <input type="hidden" name="id_pagina" value="{{pagina_atual}}">
+                <div style="position: relative; left: 27%; width: 200px; ">
+                    <button type="submit" class="btn btn-success" style="border-radius: 5px;"
+                        onclick="fecha_modal_add_card()">enviar</button>
+                    <button type="button" class="btn btn-secondary" onclick="fecha_modal_add_card()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- MODAL: FIM ADD FLASH CARDS -->
+
+
+    <!-- ------------------FIM MODALS------------------  -->
+
+    <!--- -----------------MODAL: ADICIONA PAGINAS + PERGUNTA SIMULADOS-------------------------- -->
+
+    <div id="modal_adiciona_pagina_simulado_e_pergunta"
+        style="display: none; position:relative; top: -100px;  left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 999;">
+        <div
+            style="position: absolute;   left: 35%;  width: 400px; max-width: 100%; background-color: rgba(183, 183, 183, 0.538); padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">
+
+            <div>
+                <form action="{% url 'add_pagina_simulado' %}" method="POST"> {% csrf_token %}
+
+                    <div class="mb-2">
+                        <label for="message-text" class="col-form-label">De um topico a pagina:</label>
+                        <textarea class="form-control" name="titulo_pagina"></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <label for="message-text" class="col-form-label">Pergunta:</label>
+                        <textarea class="form-control" name="pergunta_simulado" id="pergunta"></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <label for="message-text" class="col-form-label">Alternativa A):</label>
+                        <textarea class="form-control" name="alternativa_a_simulado" id="alternativaA"></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <label for="message-text" class="col-form-label">Alternativa B):</label>
+                        <textarea class="form-control" name="alternativa_b_simulado" id="alternativaB"></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <label for="message-text" class="col-form-label">Alternativa C):</label>
+                        <textarea class="form-control" name="alternativa_c_simulado" id="alternativaC"></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <label for="message-text" class="col-form-label">Alternativa D):</label>
+                        <textarea class="form-control" name="alternativa_d_simulado" id="alternativaD"></textarea>
+                    </div>
+                    <div class="mb-1">
+                        <label for="message-text" class="col-form-label">resposta correta</label>
+                        <ul class="list-unstyled">
+                            <li>
+                                <input type="radio" id="alternativa1" name="alternativa_correta" value="A">
+                                <label for="alternativa1">A</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="alternativa2" name="alternativa_correta" value="B">
+                                <label for="alternativa2">B</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="alternativa3" name="alternativa_correta" value="C">
+                                <label for="alternativa3">C</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="alternativa4" name="alternativa_correta" value="D">
+                                <label for="alternativa4">D</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="position: relative; left: 35%; width: auto; ">
+
+                        <button type="submit" class="btn btn-success" style="border-radius: 5px; width: 100px; "
+                            onclick="fecha_modal_add_pagina_simulado_e_pergunta()">enviar</button>
+                        <button type="button" class="btn btn-secondary"
+                            onclick="fecha_modal_add_pagina_simulado_e_pergunta()">Cancelar</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--- -----------------MODAL: FIM ADICIONA PAGINA + PERGUNTA SIMULADOS-------------------------- -->
+
+
+
+
+
+    <script src="{% static 'javascript/script_prof.js' %}"></script>
+
+    <script src="{% static 'javascript/script_perfil.js' %}"></script>
+</body>
+
+</html>

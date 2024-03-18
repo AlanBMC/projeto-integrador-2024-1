@@ -1,0 +1,267 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/principal.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <title>Flashs</title>
+</head>
+
+<body>
+    <!-- MENU INICIO FZER ELE DE BASE -->
+
+    <div class="page-wrapper chiller-theme toggled">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="">flashs</a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="sidebar-header">
+                    <div class="user-pic">
+                        <img src="{{  foto_perfil }}" width="30" height="40" alt="User picture" />
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">
+
+                            <strong>
+
+                                {{request.user.username}}
+                                </a>
+                            </strong>
+                        </span>
+                        <!-- -editar:  precisa?-->
+                        <span class="user-role"></span>
+                        <span class="user-status">
+                            <i class="fa fa-circle"></i>
+                            <!-- -editar: para outros tipos de status -->
+                            <span>Online</span><br>
+                            <span>{{tipo_user}}</span>
+                        </span>
+                    </div>
+                </div>
+                <!-- sidebar-header  -->
+                <div class="sidebar-search">
+
+                </div>
+                <!-- sidebar-search  -->
+                <div class="sidebar-menu">
+                    <ul>
+                        <li class="header-menu">
+                            <span>Minhas paginas</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-tachometer-alt"></i>
+                                <span>Meus Cards</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+
+
+                                    {% for paginas_card in paginas_cards%}
+                                    <li>
+                                        <a href="{% url 'paginas' paginas_card.id %}">
+                                            {{paginas_card.titulo}}
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="far fa-gem"></i>
+                                <span>Meus Simulados</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+
+                                    {% for simulados in paginas_simulados %}
+
+                                    <li>
+                                        <a href="{% url 'simulado' simulados.id %}">
+                                            {{simulados.titulo}}
+                                        </a>
+                                    </li>
+
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="header-menu">
+                            <span>Tarefas dos Professores</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-book"></i>
+                                <span>Cards dos Prof's</span>
+
+
+                                <!-- <span class="badge badge-pill badge-danger">{{ paginas_compartilhadas.count }}</span> -->
+
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+
+                                    </li>
+                                    <li><a>Sem páginas</a></li>
+                                </ul>
+                            </div>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-book"></i>
+                                <span>Simulados dos Prof's</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+
+                                </ul>
+                            </div>
+                        </li>
+
+
+                        </li>
+                        <li class="header-menu">
+                            <span>ENEM - SIMULADÃO</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-book"></i>
+                                <span>ANO'S</span>
+                                <!--<span class="badge badge-pill badge-danger">{{ simulados_compartilhados.count }}</span>-->
+                            </a>
+                            <div class="sidebar-submenu">
+
+
+                                <ul>
+                                    <li>
+                                        <a href="{%url 'enem' 20231 %}">Enem 2023- dia 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="{%url 'enem' 20232 %}">Enem 2023- dia 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="{%url 'enem' 20221 %}">Enem 2022- dia 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="{%url 'enem' 20222 %}">Enem 2022- dia 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="{%url 'enem' 20211 %}">Enem 2021- dia 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="{%url 'enem' 20212 %}">Enem 2021- dia 2</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+            <!-- sidebar-content  -->
+            <div class="sidebar-footer">
+                <a href="{% url 'estatisticas_simulado' %}">
+                    <i class="fa-brands fa-think-peaks"></i>
+                    <span class="badge badge-pill badge-warning notification"></span>
+                </a>
+                <a href="{% url 'configurar' %}">
+                    <i class="fa fa-cog"></i>
+                    <span class="badge-sonar"></span>
+                </a>
+                <a href="{%url 'logout' %}">
+
+                        <i>
+                            <button type="submit" class="fa fa-power-off sair" style="
+                       background-color: rgba(157, 156, 156, 0);
+                        color: rgb(133, 165, 165);"></button>
+
+                        </i>
+                   
+                </a>
+
+            </div>
+            <!-- pega o ID da pagina e no javascritp faz os procedimentos para adicionar o card a pagina correta. -->
+
+
+        </nav>
+        <main class="page-content" style="margin-left: 60px; ">
+
+
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+            </ul>
+            {% endif %}
+
+
+
+
+
+            <form action="{% url 'configurar' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">@Arroba</label>
+                    <input type="text" class="form-control" id="" name="nome_arroba" placeholder="{{usuario}}"
+                        value="{{usuario}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">senha</label>
+                    <input type="password" class="form-control" id="senha1" name="senha1" placeholder="Senha"
+                        value="   ">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Confirma senha</label>
+                    <input type="password" class="form-control" id="senha2" name="senha2" placeholder="Confirma senha">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Trocar foto de perfil</label>
+                    <input class="form-control" type="file" name="foto_perfil" id="formFile">
+                </div>
+                <button type="submit" class="btn btn-success">Enviar</button>
+
+                <button type="reset" class="btn btn-primary">Limpar</button>
+            </form>
+            <div style="margin-left: -40px;">
+                <form action="{% url 'edit_paginas_conf' %}" method="POST">{% csrf_token %}
+
+                    <button type="submit" class="btn btn-dark">Editar paginas</button>
+                </form>
+            </div>
+        </main>
+        <script src="{% static 'javascript/script_aluno.js' %}"></script>
+
+        <script src="{% static 'javascript/script_perfil.js' %}"></script>
+</body>
+
+</html>

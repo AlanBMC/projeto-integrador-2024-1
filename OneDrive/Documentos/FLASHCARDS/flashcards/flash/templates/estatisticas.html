@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/estatisticas_simulado.css' %}" />
+</head>
+
+
+<body>
+    <nav class="navbar navbar-light bg-dark">
+        <div class="container-fluid justify-content-start">
+            <a href="" class="logo" target="_blank">
+                <img src="{%static 'img/logo2.jpg'%}">
+            </a>
+            <form action="{%url 'paginas' 1 %}" method="POST"> {% csrf_token %}
+                <button class="btn btn-outline-success me-2" type="submit">Home</button>
+            </form>
+            <form action="{% url 'processa_dados_enem' 20231 %}" method="POST"> {% csrf_token %}
+                <button class="btn btn-sm btn-outline-secondary" type="submit">Estatisticas enem</button>
+            </form>
+        </div>
+    </nav>
+    <div id="chartdiv"></div>
+</body>
+<script>
+    am5.ready(function () {
+
+        // Create root element
+        // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+        var root = am5.Root.new("chartdiv");
+
+
+        // Set themes
+        // https://www.amcharts.com/docs/v5/concepts/themes/
+        root.setThemes([
+            am5themes_Animated.new(root)
+        ]);
+
+
+        // Create chart
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/
+        var chart = root.container.children.push(am5xy.XYChart.new(root, {
+            panX: false,
+            panY: false,
+            wheelX: "panX",
+            wheelY: "zoomX",
+            paddingLeft: 0,
+            layout: root.verticalLayout
+        }));
+
+
+        // Add legend
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+        var legend = chart.children.push(am5.Legend.new(root, {
+            centerX: am5.p50,
+            x: am5.p50
+        }))
+
+        var data = {{ dados_estatisticas | safe}}
+
+        data.forEach(item => {
+            item.paginaTentativa = `${item.pagina}/ Tentativa: ${item.tentativas}`;
+        });
+
+    // Create axes
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+    var yAxis = chart.yAxes.push(am5xy.CategoryAxis.new(root, {
+        categoryField: "paginaTentativa",
+        renderer: am5xy.AxisRendererY.new(root, {
+            inversed: true,
+            cellStartLocation: 0.1,
+            cellEndLocation: 0.9,
+            minorGridEnabled: true
+        })
+    }));
+
+    yAxis.data.setAll(data);
+
+    var xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
+        renderer: am5xy.AxisRendererX.new(root, {
+            strokeOpacity: 0.1,
+            minGridDistance: 50
+        }),
+        min: -0.5, // Ajuste o valor mínimo para uma pequena fração negativa
+        max: 20, // Ajuste conforme necessário para o máximo esperado em seus dados
+        strictMinMax: true // Isso garante que o gráfico respeite os valores min e max definidos
+    }));
+
+
+    // Add series
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+    function createSeries(field, name) {
+        var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+            name: name,
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueXField: field,
+            categoryYField: "paginaTentativa",
+            sequencedInterpolation: true,
+            tooltip: am5.Tooltip.new(root, {
+                pointerOrientation: "horizontal",
+                labelText: "[bold]{name}[/]\n{categoryY}: {valueX}"
+            })
+        }));
+
+        series.columns.template.setAll({
+            height: am5.p100,
+            strokeOpacity: 0
+        });
+
+
+        series.bullets.push(function () {
+            return am5.Bullet.new(root, {
+                locationX: 1,
+                locationY: 0.5,
+                sprite: am5.Label.new(root, {
+                    centerY: am5.p50,
+                    text: "{valueX}",
+                    populateText: true
+                })
+            });
+        });
+
+        series.bullets.push(function () {
+            return am5.Bullet.new(root, {
+                locationX: 1,
+                locationY: 0.5,
+                sprite: am5.Label.new(root, {
+                    centerX: am5.p100,
+                    centerY: am5.p50,
+                    text: "{name}",
+                    fill: am5.color(0xffffff),
+                    populateText: true
+                })
+            });
+        });
+
+        series.data.setAll(data);
+        series.appear();
+
+        return series;
+    }
+
+    createSeries("erros", "Erros");
+    createSeries("acertos", "Acertos");
+    createSeries("tentativas", "Total de Tentativas");
+
+    // Add legend
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+    var legend = chart.children.push(am5.Legend.new(root, {
+        centerX: am5.p50,
+        x: am5.p50
+    }));
+
+    legend.data.setAll(chart.series.values);
+
+
+    // Add cursor
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+    var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+        behavior: "zoomY"
+    }));
+    cursor.lineY.set("forceHidden", true);
+    cursor.lineX.set("forceHidden", true);
+
+
+    // Make stuff animate on load
+    // https://www.amcharts.com/docs/v5/concepts/animations/
+    chart.appear(1000, 100);
+
+    }); // end am5.ready()
+
+</script>
+
+</html>
