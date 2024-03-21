@@ -120,13 +120,13 @@ Coloque aqui a modelagem do banco de dados desenvolvido no projeto. Você pode c
 ### Modelo conceitual
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="conceitual_1_flash.png" width="150px"></br> **Modelagem conceitual** | lorem |
+|  <img src="Conceitual_1_flash.png" width="750px"></br> **Modelagem conceitual** | A modelagem conceitual é um pré-modelo do projeto, uma visualização em 2D do projeto como um todo. |
 
 
 ### Modelo logico
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="logico_1_flash.png" width="150px"></br> **Modelagem logico** | lorem |
+|  <img src="Lógico_1_flash.png" width="750px"></br> **Modelagem logico** | A modelagem logica é util para criação do sql e verificar a correspondencia de chaves estrangeiras. |
 
 # GUIA BASICO DE NAVEGAÇÃO - desenvolvedor
 ```python
@@ -178,3 +178,5 @@ Coloque aqui a modelagem do banco de dados desenvolvido no projeto. Você pode c
     path('estatisticas_simulado/', views.estatisticas_simulado, name='estatisticas_simulado')
 ```
 
+## GUIA BASICO DE NAVEGAÇÃO - usuario
+*Acessa nossa documentação para usuario* [guia para usuarios](MANUAL.md)
