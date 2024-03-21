@@ -3,33 +3,36 @@
 # GUIA BASICO DE NAVEGAÇÃO - Usuario
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="1.jpg" width="150px"></br> **Modelagem logico** | lorem |
+|  <img src="1.jpg" width="750px"></br> **Modelagem logico** |
 
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="2.jpg" width="150px"></br> **Modelagem logico** | lorem |
+|  <img src="2.jpg" width="750px"></br> **Modelagem logico** |
 
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="3.jpg" width="150px"></br> **Modelagem logico** | lorem |
+|  <img src="3.jpg" width="750px"></br> **Modelagem logico** |
 
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="4.jpg" width="150px"></br> **Modelagem logico** | lorem |
+|  <img src="4.jpg" width="750px"></br> **Modelagem logico** |
 
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="5.jpg" width="150px"></br> **Modelagem logico** | lorem |
+|  <img src="5.jpg" width="750px"></br> **Modelagem logico** |
 
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="6.jpg" width="150px"></br> **Modelagem logico** | lorem |
+|  <img src="6.jpg" width="750px"></br> **Modelagem logico** |
 
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="7.jpg" width="150px"></br> **Modelagem logico** | lorem |
+|  <img src="7.jpg" width="750px"></br> **Modelagem logico** |
 
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="8.jpg" width="150px"></br> **Modelagem logico** | lorem |
+|  <img src="8.jpg" width="750px"></br> **Modelagem logico** |
+
+# DUVIDAS
+* Tem duvidas ainda? me mande um email:* alanbmc00@gmail.com
 
