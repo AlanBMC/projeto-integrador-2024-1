@@ -1,5 +1,7 @@
 # Projeto - FLASH'S CARD'S
-
+|  |  |
+|:-------------:|:------------------------------------------------------------:|
+|  <img src="EU2.jpg" width="150px"></br> **Alan Bruno Morais Costa** |
 Projeto final para Cyber-Edux. <strong> Veja o projeto em: </strong> 
 
 ## Visão geral
