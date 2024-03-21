@@ -6,8 +6,8 @@ Projeto final para Cyber-Edux. <strong> Veja o projeto em: </strong>
 O projeto final tem como objetivo testar as habilidades aprendidas no curso de capacitação da Cyber-Edux. Curso de cuiabá-MT de tecnologia.
 Flash Cards é um site para gestão escolar, com o objetivo de facilitar a vida do estudante.
 Temos:
-  *Flash's cards
-  *Simulados - Criados pelo usuario, professor ou pela nossa API com o gemini e um API sobre questões no geral.
+  *Flash's cards*
+  *Simulados* - Criados pelo usuario, professor ou pela nossa API com o gemini e um API sobre questões no geral.
 ## Tecnologias usadas
 
 Para este projeto foi usada as seguintes tecnologias.
@@ -29,18 +29,22 @@ Para este projeto foi usada as seguintes tecnologias.
 <img height="25" width="80" src="https://img.shields.io/badge/API-QUESTOES-FFD43B?style=plastic&logo=goole&logoColor=white" alt="API">
 
 ## DATABASES
-<img height="25" width="80" src="https://img.shields.io/badge/PostgreSQL-316192?style=plastic&logo=postgresql&logoColor=white" alt="API">
+<img height="38" width="120" src="https://img.shields.io/badge/PostgreSQL-316192?style=plastic&logo=postgresql&logoColor=white" alt="API">
 
 
-</div>
 
 ## Ferramenta
 
 A ferramenta usada:
 <div style="display: block"><br>
-<img align="center" alt="Live Server" height="38" width="120" src="https://img.shields.io/badge/VScode-4285F4?style=for-the-badge&logo=visual-studio-code&logoColor=blue">
-</div>
+<img align="center" alt="Live Server" height="38" width="120" src="https://img.shields.io/badge/VScode-316192?style=plastic&logo=visual-studio-code&logoColor=blue">
 
+
+## Orientações
+
+Confira nossa [documentação](DOCUMENTACAO.md) e venha fazer parte desse grande projeto educacional.
+</div>
+</div>
 ## Sobre o autor
 
 <!-- Coloque seu nome, uma foto sua e uma pequena bio sobre você na seguinte tabela: -->
