@@ -2,7 +2,7 @@
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
 |  <img src="logo2.jpg" width="150px"></br> 
-Projeto final para Cyber-Edux. <strong> Veja o projeto em: </strong> 
+
 
 ## Visão geral
 O projeto final tem como objetivo testar as habilidades aprendidas no curso de capacitação da Cyber-Edux. Curso de cuiabá-MT de tecnologia.
