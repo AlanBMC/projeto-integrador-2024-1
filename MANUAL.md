@@ -3,36 +3,36 @@
 # GUIA BASICO DE NAVEGAÇÃO - Usuario
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="1.jpg" width="750px"></br> **Modelagem logico** |
+|  <img src="1.jpg" width="750px"></br> **Simulado** |
 
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="2.jpg" width="750px"></br> **Modelagem logico** |
+|  <img src="2.jpg" width="750px"></br> **Cards** |
 
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="3.jpg" width="750px"></br> **Modelagem logico** |
+|  <img src="3.jpg" width="750px"></br> **Estatistica** |
 
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="4.jpg" width="750px"></br> **Modelagem logico** |
+|  <img src="4.jpg" width="750px"></br> **Estatistica** |
 
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="5.jpg" width="750px"></br> **Modelagem logico** |
+|  <img src="5.jpg" width="750px"></br> **Estatistica** |
 
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="6.jpg" width="750px"></br> **Modelagem logico** |
+|  <img src="6.jpg" width="750px"></br> **ENEM** |
 
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="7.jpg" width="750px"></br> **Modelagem logico** |
+|  <img src="7.jpg" width="750px"></br> **ENEM** |
 
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
-|  <img src="8.jpg" width="750px"></br> **Modelagem logico** |
+|  <img src="8.jpg" width="750px"></br> **ENEM** |
 
 # DUVIDAS
-* Tem duvidas ainda? me mande um email:* alanbmc00@gmail.com
+*Tem duvidas ainda? me mande um email:* alanbmc00@gmail.com
 
