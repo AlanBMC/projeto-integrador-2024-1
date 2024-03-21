@@ -116,3 +116,9 @@ function fechar_modal_delete_questao() {
     var modal = document.getElementById('modal_delete_questao')
     modal.style.display = 'none'
 }
+
+function updateLabel() {
+    var input = document.getElementById('imagem');
+    var fileName = input.files[0].name;
+    document.getElementById('file-chosen').innerText = fileName;
+}

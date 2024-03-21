@@ -7,6 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{%static 'css/principal.css'%}">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo2_resized.jpg' %}" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
@@ -43,16 +45,23 @@
                 </div>
                 <div class="sidebar-header">
                     <div class="user-pic">
-                        <img src="{{  foto_perfil }}" width="30" height="40" alt="User picture" />
+                        <a href="{% url  'paginas' pagina_principal.id %}">
+
+                            <img src="{{  foto_perfil }}" width="30" height="40" alt="User picture" />
+                        </a>
                     </div>
                     <div class="user-info">
                         <span class="user-name">
 
-                            <strong>
 
-                                {{request.user.username}}
-                                </a>
-                            </strong>
+                            <a href="{% url  'paginas' pagina_principal.id %}" style="text-decoration: none;">
+                                <strong style="color: beige; text-decoration: none;">
+
+                                    {{request.user.username}}
+                                </strong>
+                            </a>
+
+
                         </span>
                         <!-- -editar:  precisa?-->
                         <span class="user-role"></span>
@@ -190,8 +199,8 @@
             </div>
             <!-- sidebar-content  -->
             <div class="sidebar-footer">
-                <a href="">
-                    <i class="fa-brands fa-think-peaks"></i>
+                <a href="{% url 'estatisticas_simulado' %}">
+                    <i class="fa fa-bar-chart"></i>
                     <span class="badge badge-pill badge-warning notification"></span>
                 </a>
                 <a href="">
@@ -235,6 +244,7 @@
                 <h1 style="left: 30%;"> Editar paginas de Simulados </h1>
             </div>
             {%for pgs in paginas_simulados %}
+            {% if pgs.titulo != 'Crie simulados'%}
 
             <div class="mb-3">
                 <label type="text" class="form-control" name="titulo_da_pagina_edit_conf" style="margin: 10px;"
@@ -242,13 +252,15 @@
                 <button class="btn btn-secondary" type="submit" id="botao_edit_pg"
                     onclick="abre_modal_edit_pg('{{pgs.titulo}}', '{{pgs.id}}')">Editar</button>
 
-                <button class="btn btn-danger" onclick="abre_modal_delete_pg('{{pgs.id}}', '{{pgs.titulo}}')" id="botao_edit_pg">Delete</button>
+                <button class="btn btn-danger" onclick="abre_modal_delete_pg('{{pgs.id}}', '{{pgs.titulo}}')"
+                    id="botao_edit_pg">Delete</button>
             </div>
-
+            {%endif%}
             {%endfor%}
             <!------------ PARTE DE DELETE DA PAGINA ------------->
 
-            <div id="modal_delete_pg" style="display: none; position: fixed; top: 50%; left: 60%; transform: translate(-50%, -50%); width: 500px; max-width: 60%; background-color: bisque; padding: 50px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">
+            <div id="modal_delete_pg"
+                style="display: none; position: fixed; top: 50%; left: 60%; transform: translate(-50%, -50%); width: 500px; max-width: 60%; background-color: bisque; padding: 50px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">
                 <div>
                     <form action="{% url 'delete_pg' %}" method="POST"> {% csrf_token %}
                         <input type="hidden" id="id_pagina_delete" name="id_pagina">
@@ -267,9 +279,9 @@
 
 
             <!------------ PARTE DE EDIT TITULO DA PAGINA ------------->
-            <div id="modal_edit_titulo_pg"  style="display: none; position: fixed; top: 50%; left: 60%; transform: translate(-50%, -50%); width: 500px; max-width: 60%; background-color: bisque; padding: 50px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">
-                <div
-                    >
+            <div id="modal_edit_titulo_pg"
+                style="display: none; position: fixed; top: 50%; left: 60%; transform: translate(-50%, -50%); width: 500px; max-width: 60%; background-color: bisque; padding: 50px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">
+                <div>
                     <form action="{% url 'edit_titulo_pg' %}" method="POST"> {% csrf_token %}
                         <input type="hidden" id="id_pagina_edit" name="id_pagina">
                         <h4>Alterar nome da pagina:</h4>

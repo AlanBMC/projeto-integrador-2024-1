@@ -5,6 +5,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo2_resized.jpg' %}" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{%static 'css/principal.css'%}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
@@ -43,16 +45,23 @@
                 </div>
                 <div class="sidebar-header">
                     <div class="user-pic">
-                        <img src="{{  foto_perfil }}" width="30" height="40" alt="User picture" />
+                        <a href="{% url  'paginas' pagina_principal.id %}">
+
+                            <img src="{{  foto_perfil }}" width="30" height="40" alt="User picture" />
+                        </a>
                     </div>
                     <div class="user-info">
                         <span class="user-name">
 
-                            <strong>
 
-                                {{request.user.username}}
-                                </a>
-                            </strong>
+                            <a href="{% url  'paginas' pagina_principal.id %}" style="text-decoration: none;">
+                                <strong style="color: beige; text-decoration: none;">
+
+                                    {{request.user.username}}
+                                </strong>
+                            </a>
+
+
                         </span>
                         <!-- -editar:  precisa?-->
                         <span class="user-role"></span>
@@ -190,7 +199,7 @@
             <!-- sidebar-content  -->
             <div class="sidebar-footer">
                 <a href="{% url 'estatisticas_simulado' %}">
-                    <i class="fa-brands fa-think-peaks"></i>
+                    <i class="fa fa-bar-chart"></i>
                     <span class="badge badge-pill badge-warning notification"></span>
                 </a>
                 <a href="{% url 'configurar' %}">
@@ -199,13 +208,13 @@
                 </a>
                 <a href="{%url 'logout' %}">
 
-                        <i>
-                            <button type="submit" class="fa fa-power-off sair" style="
+                    <i>
+                        <button type="submit" class="fa fa-power-off sair" style="
                        background-color: rgba(157, 156, 156, 0);
                         color: rgb(133, 165, 165);"></button>
 
-                        </i>
-                   
+                    </i>
+
                 </a>
 
             </div>
@@ -213,15 +222,18 @@
 
 
         </nav>
-        <main class="page-content" style="margin-left: 60px; ">
+        <main class="page-content">
 
 
             {% if messages %}
-            <ul class="messages">
+            <div style="justify-items: center; top: -40px; " class="alert-messages">
                 {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-                    {% endfor %}
-            </ul>
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" style="text-align: center;">
+                    {{ message }}
+                </div>
+                {% endfor %}
+
+            </div>
             {% endif %}
 
 
@@ -244,13 +256,19 @@
                     <label for="exampleFormControlInput1" class="form-label">Confirma senha</label>
                     <input type="password" class="form-control" id="senha2" name="senha2" placeholder="Confirma senha">
                 </div>
-                <div class="mb-3">
-                    <label for="formFile" class="form-label">Trocar foto de perfil</label>
-                    <input class="form-control" type="file" name="foto_perfil" id="formFile">
-                </div>
-                <button type="submit" class="btn btn-success">Enviar</button>
 
-                <button type="reset" class="btn btn-primary">Limpar</button>
+                <div class="file-upload-wrapper" style="margin-top: 20px;">
+                    <label for="imagem" class="file-upload-button" style="cursor: pointer; ">
+                        <i class="fa fa-cloud-upload"></i> <span id="file-chosen">Escolha um arquivo</span>
+                        <input id="imagem" name="foto_perfil" type="file" class="form-input" style="display: none;"
+                            onchange="updateLabel()">
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-success"
+                    style="margin-top:-35px; margin-right:5px; margin-left: 5px;">Enviar</button>
+
+                <button type="reset" class="btn btn-primary" style="margin-top: -35px;">Limpar</button>
             </form>
             <div style="margin-left: -40px;">
                 <form action="{% url 'edit_paginas_conf' %}" method="POST">{% csrf_token %}

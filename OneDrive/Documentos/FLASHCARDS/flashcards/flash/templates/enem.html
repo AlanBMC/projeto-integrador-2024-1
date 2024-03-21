@@ -5,8 +5,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.2">
     <link rel="stylesheet" href="{%static 'css/principal.css'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo2_resized.jpg' %}" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
@@ -66,7 +69,7 @@
                 <!-- sidebar-header  -->
                 <div class="sidebar-search">
                     <div>
-                       
+
                     </div>
                 </div>
                 <!-- sidebar-search  -->
@@ -83,7 +86,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
 
-                                    
+
                                     <li>
                                         <a href="{% url 'paginas' pagina_principal.id %}">
                                             {{pagina_principal.titulo}}
@@ -92,10 +95,10 @@
                                 </ul>
                             </div>
                         </li>
-                       
-                      
-                          
-                       
+
+
+
+
 
 
                         </li>
@@ -141,11 +144,11 @@
             </div>
             <!-- sidebar-content  -->
             <div class="sidebar-footer">
-                <a href="#">
-                    <i class="fa-brands fa-think-peaks"></i>
+                <a href="{% url 'estatisticas_simulado' %}">
+                    <i class="fa fa-bar-chart"></i>
                     <span class="badge badge-pill badge-warning notification"></span>
                 </a>
-           
+
                 <a href="">
 
                     <form action="" method="POST">{% csrf_token %}
@@ -165,7 +168,8 @@
         <div class="row g-0">
 
 
-            <div style="height: 609px; width: 70%;" lass="col-sm-5 col-md-7">
+            <div style="height: 609px; width: 70%; margin-left: 60px; position: relative;"
+                class="col-sm-5 col-md-7 modalenem ">
 
 
                 <embed src="{% static 'pdf_enem/ENEM_' %}{{ enem_ano_dia }}.pdf" type="application/pdf" width="100%"
@@ -173,11 +177,12 @@
 
             </div>
 
-            <div class="col-7 col-md-5" style="margin-left: 78%; padding: 20px; padding-left: 0; margin-top: -600px;">
+            <div class="col-7 col-md-5 modal_gabarito"
+                style="margin-left: 78%; padding: 20px; padding-left: 0; margin-top: -600px;">
                 <p> Marque as opções correta </p>
 
-                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">PREENCHER</button>
+                <button class="btn btn-light botaoenem" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" style="background-color: rgba(71, 61, 61, 0.249); color: rgb(47, 47, 47);" aria-controls="offcanvasRight">PREENCHER</button>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                     aria-labelledby="offcanvasRightLabel">
                     <div class="offcanvas-header">
@@ -251,13 +256,13 @@
 
 
 
-       
 
 
 
-    <script src="{% static 'javascript/script_aluno.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="{% static 'javascript/script_perfil.js' %}"></script>
+
+        <script src="{% static 'javascript/script_aluno.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'javascript/script_perfil.js' %}"></script>
 </body>
 
 </html>

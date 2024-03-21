@@ -3,187 +3,278 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estatisticas</title>
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="icon" type="image/x-icon" href="{% static 'img/logo2_resized.jpg' %}" />
 
-   
+  <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{%static 'css/principal.css'%}">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static 'css/estatisticas_simulado.css' %}" />
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'css/estatisticas_simulado.css' %}" />
 </head>
 
 
 <body>
-    <nav class="navbar navbar-light bg-dark">
-        <div class="container-fluid justify-content-start">
-            <a href="" class="logo" target="_blank">
-                <img src="{%static 'img/logo2.jpg'%}">
-            </a>
-            <form action="{%url 'paginas' 1 %}" method="POST"> {% csrf_token %}
-                <button class="btn btn-outline-success me-2" type="submit">Home</button>
-            </form>
-            <form action="{% url 'processa_dados_enem' 20231 %}" method="POST"> {% csrf_token %}
-                <button class="btn btn-sm btn-outline-secondary" type="submit">Enem - 2023/1</button>
-            </form>
-            <form action="{% url 'processa_dados_enem' 20232 %}" method="POST"> {% csrf_token %}
-                <button class="btn btn-sm btn-outline-secondary" type="submit">Enem - 2023/2</button>
-            </form>
-            <form action="{% url 'processa_dados_enem' 20221 %}" method="POST"> {% csrf_token %}
-                <button class="btn btn-sm btn-outline-secondary" type="submit">Enem - 2022/1</button>
-            </form>
-            <form action="{% url 'processa_dados_enem' 20222 %}" method="POST"> {% csrf_token %}
-                <button class="btn btn-sm btn-outline-secondary" type="submit">Enem - 2022/2</button>
-            </form>
-            <form action="{% url 'processa_dados_enem' 20211 %}" method="POST"> {% csrf_token %}
-                <button class="btn btn-sm btn-outline-secondary" type="submit">Enem - 2021/1</button>
-            </form>
-            <form action="{% url 'processa_dados_enem' 20212 %}" method="POST"> {% csrf_token %}
-                <button class="btn btn-sm btn-outline-secondary" type="submit">Enem - 2021/2</button>
-            </form>
-            
-        </div>
-    </nav>
-    <div >
-        {{dia}}
-        {{ano}}
+  <!-- MENU INICIO FZER ELE DE BASE -->
 
-    </div>
-    <div id="chartdiv"></div>
+  <div class="page-wrapper chiller-theme toggled" style="width: 10px;">
+    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+      <i class="fas fa-bars"></i>
+    </a>
+    <nav id="sidebar" class="sidebar-wrapper" style="width: 13%;">
+      <div class="sidebar-content">
+        <div class="sidebar-brand">
+          <a href="{% url 'paginas' pagina_principal %}">flashs</a>
+          <div id="close-sidebar">
+          </div>
+        </div>
+        <div class="sidebar-header">
+          <div class="user-pic">
+            <a href="{% url 'paginas' pagina_principal %}">
+
+              <img src="{{  foto_perfil }}" width="30" height="40" alt="User picture" />
+            </a>
+          </div>
+          <div class="user-info">
+            <span class="user-name">
+              <a href="{% url 'paginas' pagina_principal %}" style="text-decoration: none;">
+                <strong style="color: beige; text-decoration: none;">
+
+                  {{request.user.username}}
+                </strong>
+              </a>
+            </span>
+            <!-- -editar:  precisa?-->
+            <span class="user-role"></span>
+            <span class="user-status">
+              <i class="fa fa-circle"></i>
+              <!-- -editar: para outros tipos de status -->
+
+              <span>{{tipo_user}}</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- sidebar-search  -->
+        <div class="sidebar-menu">
+          <ul>
+            <li class="header-menu">
+              <span>Enem graficos:</span>
+            </li>
+            <li>
+              <a href="{% url 'processa_dados_enem' 20231 %}">
+                Enem 2023/1
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'processa_dados_enem' 20232 %}">
+                Enem 2023/2
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'processa_dados_enem' 20221 %}">
+                Enem 2022/1
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'processa_dados_enem' 20222 %}">
+                Enem 2022/2
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'processa_dados_enem' 20211 %}">
+                Enem 2021/1
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'processa_dados_enem' 20212 %}">
+                Enem 2021/2
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- sidebar-menu  -->
+      </div>
+      <!-- sidebar-content  -->
+      <div class="sidebar-footer">
+        <a href="{% url 'estatisticas_simulado' %}">
+          <i class="fa fa-bar-chart"></i>
+          <span class="badge badge-pill badge-warning notification"></span>
+        </a>
+        <a href="{% url 'configurar' %}">
+          <i class="fa fa-cog"></i>
+          <span class="badge-sonar"></span>
+        </a>
+        <a href="{%url 'logout' %}">
+          <i>
+            <button type="submit" class="fa fa-power-off sair" style="
+                     background-color: rgba(157, 156, 156, 0);
+                      color: rgb(133, 165, 165);"></button>
+          </i>
+        </a>
+
+      </div>
+
+
+    </nav>
+  </div>
+  <div id="chartdiv" style="margin-top: -15%; margin-left: 15%; margin-right: -10%; width: 80%;"></div>
 </body>
 <script>
-am5.ready(function() {
+  am5.ready(function () {
 
 
-// Create root element
-// https://www.amcharts.com/docs/v5/getting-started/#Root_element
-var root = am5.Root.new("chartdiv");
+    // Create root element
+    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+    var root = am5.Root.new("chartdiv");
 
 
-// Set themes
-// https://www.amcharts.com/docs/v5/concepts/themes/
-root.setThemes([
-  am5themes_Animated.new(root)
-]);
+    // Set themes
+    // https://www.amcharts.com/docs/v5/concepts/themes/
+    root.setThemes([
+      am5themes_Animated.new(root)
+    ]);
 
 
-// Create chart
-// https://www.amcharts.com/docs/v5/charts/xy-chart/
-var chart = root.container.children.push(am5xy.XYChart.new(root, {
-  panX: false,
-  panY: false,
-  paddingLeft: 0,
-  wheelX: "panX",
-  wheelY: "zoomX",
-  layout: root.verticalLayout
-}));
+    // Create chart
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/
+    var chart = root.container.children.push(am5xy.XYChart.new(root, {
+      panX: false,
+      panY: false,
+      paddingLeft: 0,
+      wheelX: "panX",
+      wheelY: "zoomX",
+      layout: root.verticalLayout
+    }));
 
 
-// Add legend
-// https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
-var legend = chart.children.push(
-  am5.Legend.new(root, {
-    centerX: am5.p50,
-    x: am5.p50
-  })
-);
+    // Add legend
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+    var legend = chart.children.push(
+      am5.Legend.new(root, {
+        centerX: am5.p50,
+        x: am5.p50
+      })
+    );
 
 
 
-var dadosEnem = {{ dados_enem | safe }};
-var data = [];
+    var dadosEnem = {{ dados_enem | safe }};
 
-dadosEnem.forEach(function(item) {
+  var data = [];
+
+  dadosEnem.forEach(function (item) {
     data.push({
-        "categoria": item['categoria'],
-        "Acertos": item['acertos'],
-        "Erros": item['erros']
+      "categoria": item['categoria'],
+      "Acertos": item['acertos'],
+      "Erros": item['erros']
     });
-});
+  });
 
- 
-console.log(data)
-// Create axes
-// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-var xRenderer = am5xy.AxisRendererX.new(root, {
-  cellStartLocation: 0.1,
-  cellEndLocation: 0.9,
-  minorGridEnabled: true
-})
 
-var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
-  categoryField: "categoria",
-  renderer: xRenderer,
-  tooltip: am5.Tooltip.new(root, {})
-}));
-
-xRenderer.grid.template.setAll({
-  location: 1
-})
-
-xAxis.data.setAll(data);
-
-var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-  renderer: am5xy.AxisRendererY.new(root, {
-    strokeOpacity: 0.1
+  console.log(data)
+  // Create axes
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+  var xRenderer = am5xy.AxisRendererX.new(root, {
+    cellStartLocation: 0.1,
+    cellEndLocation: 0.9,
+    minorGridEnabled: true
   })
-}));
 
-
-// Add series
-// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-function createSeries(name, fieldName) {
-  var series = chart.series.push(am5xy.ColumnSeries.new(root, {
-    name: name,
-    xAxis: xAxis,
-    yAxis: yAxis,
-    valueYField: fieldName,
-    categoryXField: "categoria"
+  var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+    categoryField: "categoria",
+    renderer: xRenderer,
+    tooltip: am5.Tooltip.new(root, {})
   }));
 
-  series.columns.template.setAll({
-    tooltipText: "{name}, {categoryX}:{valueY}",
-    width: am5.percent(90),
-    tooltipY: 0,
-    strokeOpacity: 0
-  });
+  xRenderer.grid.template.setAll({
+    location: 1
+  })
 
-  series.data.setAll(data);
+  xAxis.data.setAll(data);
 
-  // Make stuff animate on load
-  // https://www.amcharts.com/docs/v5/concepts/animations/
-  series.appear();
+  var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+    renderer: am5xy.AxisRendererY.new(root, {
+      strokeOpacity: 0.1
+    })
+  }));
 
-  series.bullets.push(function () {
-    return am5.Bullet.new(root, {
-      locationY: 0,
-      sprite: am5.Label.new(root, {
-        text: "{valueY}",
-        fill: root.interfaceColors.get("alternativeText"),
-        centerY: 0,
-        centerX: am5.p50,
-        populateText: true
-      })
+
+  // Add series
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+  function createSeries(name, fieldName) {
+    var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+      name: name,
+      xAxis: xAxis,
+      yAxis: yAxis,
+      valueYField: fieldName,
+      categoryXField: "categoria"
+    }));
+
+    series.columns.template.setAll({
+      tooltipText: "{name}, {categoryX}:{valueY}",
+      width: am5.percent(90),
+      tooltipY: 0,
+      strokeOpacity: 0
     });
-  });
 
-  legend.data.push(series);
-}
+    series.data.setAll(data);
+
+    // Make stuff animate on load
+    // https://www.amcharts.com/docs/v5/concepts/animations/
+    series.appear();
+
+    series.bullets.push(function () {
+      return am5.Bullet.new(root, {
+        locationY: 0,
+        sprite: am5.Label.new(root, {
+          text: "{valueY}",
+          fill: root.interfaceColors.get("alternativeText"),
+          centerY: 0,
+          centerX: am5.p50,
+          populateText: true
+        })
+      });
+    });
+
+    legend.data.push(series);
+  }
 
 
-createSeries('Erros', 'Erros')
-createSeries('Acertos', 'Acertos')
+  createSeries('Erros', 'Erros')
+  createSeries('Acertos', 'Acertos')
 
 
 
-chart.appear(1000, 100);
+  chart.appear(1000, 100);
 
 }); 
 </script>

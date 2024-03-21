@@ -36,3 +36,9 @@ function fecha_modal_sol(){
     var modal = document.getElementById('modalSol')
     modal.style.display='none'
 }
+
+function updateLabel() {
+    var input = document.getElementById('imagem');
+    var fileName = input.files[0].name;
+    document.getElementById('file-chosen').innerText = fileName;
+}

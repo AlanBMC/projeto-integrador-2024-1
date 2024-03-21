@@ -6,6 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo2_resized.jpg' %}" />
+
     <link rel="stylesheet" href="{%static 'css/principal.css'%}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
@@ -43,16 +45,19 @@
                 </div>
                 <div class="sidebar-header">
                     <div class="user-pic">
-                        <img src="{{  foto_perfil }}" width="30" height="40" alt="User picture" />
+                        <a  href="{% url  'paginas' pagina_principal.id %}">
+
+                            <img src="{{  foto_perfil }}" width="30" height="40" alt="User picture" />
+                        </a>
                     </div>
                     <div class="user-info">
                         <span class="user-name">
+                                <a href="{% url  'paginas' pagina_principal.id %}" style="text-decoration: none;">
+                                    <strong style="color: beige; text-decoration: none;">
 
-                            <strong>
-
-                                {{request.user.username}}
+                                        {{request.user.username}}
+                                    </strong>
                                 </a>
-                            </strong>
                         </span>
                         <!-- -editar:  precisa?-->
                         <span class="user-role"></span>
@@ -64,19 +69,7 @@
                         </span>
                     </div>
                 </div>
-                <!-- sidebar-header  -->
-                <div class="sidebar-search">
-                    <div>
-                        <div class="input-group">
-                            <input type="text" class="form-control search-menu" placeholder="Search..." />
-                            <div class="input-group-append">
-                                <span class="input-group-text">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <!-- sidebar-search  -->
                 <div class="sidebar-menu">
                     <ul>
@@ -221,7 +214,7 @@
             <!-- sidebar-content  -->
             <div class="sidebar-footer">
                 <a href="{% url 'estatisticas_simulado' %}">
-                    <i class="fa-brands fa-think-peaks"></i>
+                    <i class="fa fa-bar-chart"></i>
                     <span class="badge badge-pill badge-warning notification"></span>
                 </a>
                 <a href="{% url 'configurar' %}">
@@ -252,7 +245,7 @@
             <!-- ------------------MODALS------------------  -->
 
             <!-- MODAL: APARECE PERGUNTA E RESPOSTA : CARD-->
-            <div style="position:absolute; left: 15%;" id="card-con">
+            <div style="position:absolute; left: 15%;" id="card-con" class="modal_alunocard" >
                 <div class="card-list-container">
                     {% for card in cards %}
                     <div class="card">
@@ -304,7 +297,7 @@
                                                                         padding: 3em 2em;
                                                                         border-radius: 0.6em;
                                                                         box-shadow: 0 1em 2em rgba(28, 0, 80, 0.21);"
-                id="modal_edit_card_aluno">
+                id="modal_edit_card_aluno" class="modal">
                 <button type="button" onclick="fecha_modal_edit_card()" class="close-modal-btn"><i
                         class="fa-solid fa-xmark"></i></button>
                 <div class="row">
@@ -328,13 +321,13 @@
         <!-- ----------------MODAL: FIM EDIT CARD----------------- -->
 
         <!-- -------------MODAL: DELETE CARD ---------------------->
-        <div id="modal_delete_card" style="display: none; top: 50%;">
+        <div id="modal_delete_card" style="display: none; top: 50%;" class="modaldelete">
             <div
                 style="position: absolute; justify-items: center; top: 30%; left: 35%; width: 500px; max-width: 60%; background-color: bisque; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">
                 <form action="{% url 'delete_card' %}" method="POST">{% csrf_token %}
 
-                    <input type="text" name="id_pagina_do_card" id="id_pagina_do_card">
-                    <input type="text" name="id_card" id="id_card">
+                    <input type="hidden" name="id_pagina_do_card" id="id_pagina_do_card">
+                    <input type="hidden" name="id_card" id="id_card">
                     <h3>Tem certeza que deseja excluir a pagina?</h3>
 
                     <p>Todas as informações seram perdidas</p>
@@ -355,7 +348,7 @@
 
         <!-- ------------------MODALS: add pagina card------------------  -->
         <div id="modal_add_pg_card"
-            style="display: none; position:relative; top: -50px;  left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 999;">
+            style="display: none; position:relative; top: -50px;  left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 999;" class="modaladdpg">
             <div
                 style="position: absolute;   left: 30%;  width: 400px; max-width: 100%; background-color: rgba(183, 183, 183, 0.538); padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">
                 <div>
@@ -394,7 +387,7 @@
 
 
     <!-- MODAL: ADD FLASH CARDS -->
-    <div id="modal_add_flashcard"
+    <div id="modal_add_flashcard" class="modaladdcard"
         style="display: none; position:relative; top: -50px;  left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 999;">
 
         <div
@@ -427,7 +420,7 @@
 
     <!--- -----------------MODAL: ADICIONA PAGINAS + PERGUNTA SIMULADOS-------------------------- -->
 
-    <div id="modal_adiciona_pagina_simulado_e_pergunta"
+    <div id="modal_adiciona_pagina_simulado_e_pergunta" class="modaladdpgsimulado"
         style="display: none; position:relative; top: -100px;  left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 999;">
         <div
             style="position: absolute;   left: 35%;  width: 400px; max-width: 100%; background-color: rgba(183, 183, 183, 0.538); padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">

@@ -5,14 +5,29 @@
 <head>
 	<meta charset="UTF-8">
 	<!-- This script got from frontendfreecode.com -->
+	<meta name="viewport" content="width=device-width, initial-scale=0.8">
+	<link rel="icon" type="image/x-icon" href="{% static 'img/logo2_resized.jpg' %}" />
 
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
 	<link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
-    <link rel="stylesheet" href="{%static 'css/login.css'%}">
+	<link rel="stylesheet" href="{%static 'css/login.css'%}">
 
 </head>
+<style>
+	div.masthead {
+		padding-top: 10rem;
+		padding-bottom: calc(10rem - 4.5rem);
+		background: linear-gradient(to bottom, rgba(64, 64, 64, 0.842) 0%, rgba(98, 98, 98, 0.763) 100%),
+		url("{%static 'img/img_home/bg-masthead.jpg' %}");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment: scroll;
+		background-size: cover;
+	}
+</style>
 
-<body>
+<body class="masthead"
+	style="		 background: linear-gradient(to bottom, rgba(64, 64, 64, 0.938) 100%, rgba(98, 98, 98, 0.748) 100%)">
 	<a href="{% url 'login' %}" class="logo" target="_blank">
 		<img src="{%static 'img/logo2.jpg'%}">
 	</a>
@@ -20,20 +35,21 @@
 	<form action="{% url 'login' %}" method="POST"> {% csrf_token %}
 
 
-		<div class="section">
-			<div class="container">
+		<div class="section masthead">
+			<div class=" container">
 				<div class="row full-height justify-content-center">
 					<div class="col-12 text-center align-self-center py-5">
 						<div class="section pb-5 pt-5 pt-sm-2 text-center">
 							<div class="card-3d-wrap mx-auto">
 								<div class="card-3d-wrapper">
-									<div class="card-front">
+									<div class="card-front"
+										style="background: linear-gradient(to bottom, rgba(81, 77, 74, 0.37) 0%, rgba(186, 186, 186, 0.8) 100%); top: -50%;">
 										<div class="center-wrap">
 											<div class="section text-center">
-												<h4 class="mb-4 pb-3 mt-2">Login</h4>
-											<!--	{% if erro %}
+												<h4 class="mb-4 pb-3 mt-2" style="color: rgb(32, 26, 26);">Login</h4>
+												{% if erro %}
 												<p>{{ erro }}</p>
-												{% endif %} -->
+												{% endif %}
 												<div class="form-group">
 													<input type="text" name="username" class="form-style"
 														placeholder="Your Email" id="logemail" autocomplete="off">
@@ -46,8 +62,7 @@
 												</div>
 
 												<button type="submit" class="btn mt-4">Entrar</button>
-												<p class="mb-0 mt-4 text-center"><a href="#0" class="link">Esqueceu sua
-														senha?</a></p>
+
 
 
 											</div>

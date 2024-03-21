@@ -6,6 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo2_resized.jpg' %}" />
+
     <link rel="stylesheet" href="{%static 'css/principal.css'%}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
@@ -43,16 +45,23 @@
                 </div>
                 <div class="sidebar-header">
                     <div class="user-pic">
-                        <img src="{{  foto_perfil }}" width="30" height="40" alt="User picture" />
+                        <a href="{% url  'paginas' pagina_principal.id %}">
+
+                            <img src="{{  foto_perfil }}" width="30" height="40" alt="User picture" />
+                        </a>
                     </div>
                     <div class="user-info">
                         <span class="user-name">
 
-                            <strong>
 
-                                {{request.user.username}}
-                                </a>
-                            </strong>
+                            <a href="{% url  'paginas' pagina_principal.id %}" style="text-decoration: none;">
+                                <strong style="color: beige; text-decoration: none;">
+
+                                    {{request.user.username}}
+                                </strong>
+                            </a>
+
+
                         </span>
                         <!-- -editar:  precisa?-->
                         <span class="user-role"></span>
@@ -65,18 +74,7 @@
                     </div>
                 </div>
                 <!-- sidebar-header  -->
-                <div class="sidebar-search">
-                    <div>
-                        <div class="input-group">
-                            <input type="text" class="form-control search-menu" placeholder="Search..." />
-                            <div class="input-group-append">
-                                <span class="input-group-text">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <!-- sidebar-search  -->
                 <div class="sidebar-menu">
                     <ul>
@@ -228,18 +226,20 @@
 
 
 
-        <button type="button" style="margin: 10px; margin-left: 90%; margin-top: 3%;"
-            class="btn btn-primary botao_modal" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        <button type="button"
+            style="margin: 10px; margin-left: 90%; margin-top: 3%; background-color: rgba(71, 61, 61, 0.249); color: rgb(47, 47, 47);"
+            class="btn btn-light botao_modal" data-bs-toggle="modal" data-bs-target="#exampleModal"
             data-bs-whatever="@getbootstrap">+</button>
 
-        <button type="button" class="btn btn-info" style=" margin: 20px; margin-left: 20%; color: #302626;"
+        <button type="button" class="btn btn-light"
+            style=" margin: 20px; margin-left: 20%; color: #302626; background-color: rgba(71, 61, 61, 0.249); color: rgb(47, 47, 47); border-radius: 0 solid;"
             onclick="abre_modal_sol()">SOL - Gerar Questões</button>
 
 
 
 
         {% if messages %}
-        <div style="justify-items: center;" class="alert-messages">
+        <div style="justify-items: center; top: -40px;" class="alert-messages">
             {% for message in messages %}
             <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" style="text-align: center;">
                 {{ message }}
@@ -254,7 +254,8 @@
 
 
         <!-- ---------------------------------MODAL: ADD QUESTOES SIMULADO ----------------------------------------->
-        <div class="modal  fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal  fade modaladdsimulado" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -317,7 +318,7 @@
                             onclick="fecha_modal_add_questao()">Salvar</button>
                     </div>
 
-                    <input type="text" name="id_pagina" value="{{pagina_atual}}">
+                    <input type="hidden" name="id_pagina" value="{{pagina_atual}}">
                     </form>
                 </div>
             </div>
@@ -329,7 +330,7 @@
 
         <!--- -----------------MODAL: ADICIONA PAGINAS + PERGUNTA SIMULADOS-------------------------- -->
 
-        <div id="modal_adiciona_pagina_simulado_e_pergunta"
+        <div id="modal_adiciona_pagina_simulado_e_pergunta" class="modaladdpgsimulado"
             style="display: none; position:relative; top: -100px;  left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 999;">
             <div
                 style="position: absolute;   left: 35%;  width: 400px; max-width: 100%; background-color: rgba(183, 183, 183, 0.538); padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">
@@ -399,7 +400,7 @@
 
 
         <!-- ------------------MODALS: add pagina card------------------  -->
-        <div id="modal_add_pg_card"
+        <div id="modal_add_pg_card" class="modaladdpg"
             style="display: none; position:relative; top: -50px;  left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 999;">
             <div
                 style="position: absolute;   left: 30%;  width: 400px; max-width: 100%; background-color: rgba(183, 183, 183, 0.538); padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">
@@ -463,7 +464,7 @@
                 text-align: center; /* Garante que o texto esteja centralizado */
                 max-width: 90%; /* Limita a largura máxima do conteúdo para evitar que ele encoste nas bordas */
                 margin: auto;">
-
+                    {% if simulado.pergunta != 'No botão sol existe uma IA que traduz e uma api que gera algumas questoes. RESPOSTA CORRETA É A LETRA A' %}
                     <div style="left: 10%;">
                         <button type="button" id="modal-edit" onclick="abre_modal_edit_questao('{{ simulado.id }}',
                                                                 '{{ simulado.pergunta }}',
@@ -481,11 +482,12 @@
                             <i style="margin-right: 5px;" class="fa-solid fa-trash"></i>
                         </a>
                     </div>
-
+                    {%endif%}
 
                     <h2>Pergunta:</h2>
                     <h3>{{simulado.pergunta}}</h3>
                     <input type="hidden" name="id_simulado_questao_{{ simulado.id }}" value="{{simulado.id}}" />
+                    <input type="hidden" name="pergunta_simulado" value="{{simulado.pergunta}}">
                     <input type="hidden" name="id_pagina" value="{{pagina.id}}">
                     <ul class="list-unstyled">
                         <li>
@@ -514,7 +516,8 @@
                 {% endfor %}
 
             </div>
-            <button type="submit" style="background-color: blue; color: black; position: fixed; left: 45%;"
+            <button type="submit"
+                style="background-color: rgba(71, 61, 61, 0.249); color: rgb(47, 47, 47); position: fixed; left: 45%;"
                 class="btn">Enviar</button>
         </form>
 
@@ -532,7 +535,7 @@
     <!-------------- MODAL SOL-IA --------------------->
 
 
-    <div id="modalSol" style="display: none; top: 20%;">
+    <div id="modalSol" class="modalsol" style="display: none; top: -15%;">
         <div
             style="position: absolute; justify-items: center; top: 20%; left: 34%; width: 500px; max-width: 60%; background-color: rgb(236, 161, 71); padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">
             <form action="{% url 'sol' %}" method="POST"> {% csrf_token%}
@@ -583,8 +586,9 @@
 
                 <input type="hidden" name="id_pagina" value="{{pagina_atual}}">
 
-                <button type="button" onclick="fecha_modal_sol()" class="btn btn-secondary">Cancelar</button>
-                <button type="submit" onclick="fecha_modal_sol()" class="btn btn-danger">Selecionar</button>
+                <button type="button" onclick="fecha_modal_sol()" class="btn btn-secondary botaosol"
+                    style="margin: 5px;">Cancelar</button>
+                <button type="submit" onclick="fecha_modal_sol()" class="btn btn-danger botaosol">Selecionar</button>
             </form>
         </div>
     </div>
@@ -598,7 +602,7 @@
 
     <!-- -------------------MODAL DELETE QUESTAO ---------------------------- -->
     <!------------------------- MODAL PARA delete --------------------------->
-    <div id="modal_delete_questao" style="display: none; top: 50%;">
+    <div id="modal_delete_questao" class="modaldelete" style="display: none; top: 50%;">
         <div
             style="position: absolute; justify-items: center; top: 35%; left: 40%; width: 300px; max-width: 60%; background-color: bisque; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">
             <form action="{% url 'delete_questao' %}" method="POST"> {% csrf_token%}
@@ -621,8 +625,8 @@
 
 
     <!-- --------------------------MODAL EDIT QUESTAO INICIO ------------------------------ -->
-    <div id="modal_edit_questao_aluno"
-        style="display: none; position:relative; top: 100px; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 999;">
+    <div id="modal_edit_questao_aluno" class="modaledit"
+        style="display: none; position:relative; top: 1%; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 999;">
         <div
             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; max-width: 80%; background-color: rgba(183, 183, 183, 0.538); padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow-y: auto;">
 

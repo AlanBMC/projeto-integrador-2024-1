@@ -1,0 +1,292 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Home</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo2_resized.jpg' %}" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+        rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{%static 'css/home.css'%}" rel="stylesheet" />
+</head>
+<style>
+    header.masthead {
+        padding-top: 10rem;
+        padding-bottom: calc(10rem - 4.5rem);
+        background: linear-gradient(to bottom, rgba(64, 64, 64, 0.842) 0%, rgba(98, 98, 98, 0.763) 100%),
+        url("{%static 'img/img_home/bg-masthead.jpg' %}");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-size: cover;
+    }
+</style>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#page-top">Cardy</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#about">Quem somos?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'cadastro' %}">Cadastro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class="text-white font-weight-bold">Vamos comecar a trilhar um caminho juntos?</h1>
+                    <hr class="divider" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <p class="text-white-75 mb-5">Olá eu sou uma plataforma de estudos desenvolvida para facilitar tanto
+                        a vida do estudante quanto dos professores. Se voce for autodidata também.</p>
+                    <a class="btn btn-primary btn-xl" href="{% url 'cadastro' %}">CADASTRAR</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- About-->
+    <section class="page-section bg-primary" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="text-white mt-0">Você vai querer criar aqui!</h2>
+                    <hr class="divider divider-light" />
+                    <p class="text-white-75 mb-4">Crie sua propria trilha de conhecimento junto conosco</p>
+                    <a class="btn btn-light btn-xl" href="#services">Veja</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services-->
+    <section class="page-section" id="services">
+        <div class="container px-4 px-lg-5">
+            <h2 class="text-center mt-0" style="margin-left: 40px;">Serviços</h2>
+            <hr style="margin-left: 50%;" class="divider" />
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
+                            style="margin-left:100px; margin-bottom: 10px;" class="bi bi-copy" viewBox="0 0 16 16"
+                            style="margin-bottom: 10px;">
+                            <path fill-rule="evenodd"
+                                d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z" />
+                        </svg>
+                        <h3 class="h4 mb-2" style="margin-left:100px;">Flash's card's</h3>
+                        <p class="text-muted mb-0" style="margin-left:100px;">Crie flashcards para cada tópicos, com
+                            perguntas de revisão de
+                            múltipla escolha, definições, fórmulas, ou qualquer outra informação relevante de estudo.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
+                            style="margin-left:100px; margin-bottom: 10px;" class="bi bi-marker-tip" viewBox="0 0 16 16"
+                            style="margin-bottom: 10px;">
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5 6.064-1.281-4.696A.5.5 0 0 0 9.736 9H6.264a.5.5 0 0 0-.483.368l-1.28 4.696A6.97 6.97 0 0 0 8 15c1.275 0 2.47-.34 3.5-.936m.873-.598a7 7 0 1 0-8.746 0l1.19-4.36a1.5 1.5 0 0 1 1.31-1.1l1.155-3.851c.213-.713 1.223-.713 1.436 0l1.156 3.851a1.5 1.5 0 0 1 1.31 1.1z" />
+                        </svg>
+                        <h3 class="h4 mb-2" style="margin-left:100px;">Simulados</h3>
+                        <p class="text-muted mb-0" style="margin-left:100px;">Desenvolva simulados com base nos
+                            conteúdos que serão abordados no
+                            ENEM ou em outras áreas que você deseja praticar. Crie e compartilhe com seus alunos
+                            professor</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                                fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16"
+                                style="margin-left:100px; margin-bottom: 10px;">
+                                <path
+                                    d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
+                                <path
+                                    d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0" />
+                            </svg></div>
+                        <h3 class="h4 mb-2" style="margin-left:100px;">Enem</h3>
+                        <p class="text-muted mb-0" style="margin-left:100px;">Utilize os simulados para se preparar
+                            especificamente para o ENEM,
+                            garantindo que você esteja familiarizado com o estilo das questões e o tempo necessário para
+                            respondê-las.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                                style="margin-left:100px; margin-bottom: 10px;" fill="currentColor"
+                                class="bi bi-bar-chart-line" viewBox="0 0 16 16">
+                                <path
+                                    d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1zm1 12h2V2h-2zm-3 0V7H7v7zm-5 0v-3H2v3z" />
+                            </svg></div>
+                        <h3 class="h4 mb-2" style="margin-left:100px;">Estatisticas</h3>
+                        <p class="text-muted mb-0" style="margin-left:100px;">Ajuste sua estratégia de estudo com base
+                            nas estatísticas,
+                            priorizando as áreas com maior dificuldade.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                                style="margin-left:100px; margin-bottom: 10px;" fill="currentColor"
+                                class="bi bi-bar-chart-line" viewBox="0 0 16 16">
+                                <path
+                                    d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1zm1 12h2V2h-2zm-3 0V7H7v7zm-5 0v-3H2v3z" />
+                            </svg></div>
+                        <h3 class="h4 mb-2" style="margin-left:100px;">Crie</h3>
+                        <p class="text-muted mb-0" style="margin-left:100px;">Crie, pense e melhore seu desempenho com
+                            os nossos recursos.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <div class="mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                                style="margin-left:100px; margin-bottom: 10px;" fill="currentColor"
+                                class="bi bi-bar-chart-line" viewBox="0 0 16 16">
+                                <path
+                                    d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1zm1 12h2V2h-2zm-3 0V7H7v7zm-5 0v-3H2v3z" />
+                            </svg></div>
+                        <h3 class="h4 mb-2" style="margin-left:100px;">Compartilhe</h3>
+                        <p class="text-muted mb-0" style="margin-left:100px;">Compartilhe seus simulados, seus cards com
+                            seus amigos e colegas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio-->
+    <div id="portfolio">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="{%static 'img/img_home/img6.jpeg'%}" title="Project Name">
+                        <img class="img-fluid" src="{%static 'img/img_home/img6.jpeg'%}" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Flash's Cards</div>
+                            <div class="project-name">Crie flash's cards de diferentes topicos</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="{%static 'img/img_home/img1.jpeg'%}" title="Project Name">
+                        <img class="img-fluid" src="{%static 'img/img_home/img1.jpeg'%}" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Simulados</div>
+                            <div class="project-name">Crie simulados, gere simulados por uma IA. [BETA]. Professores
+                                podem
+                                adicionar suas tarefas aqui ;)
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="{%static 'img/img_home/img5.jpeg'%}" title="Project Name">
+                        <img class="img-fluid" src="{%static 'img/img_home/img5.jpeg'%}" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Enem</div>
+                            <div class="project-name">Precisa praticar para o enem? teste com questoes reais e
+                                resultados reis. Professor, incentive seus alunos ;)</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="{%static 'img/img_home/img4.jpeg'%}" title="Project Name">
+                        <img class="img-fluid" src="{%static 'img/img_home/img4.jpeg'%}" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Estatisticas</div>
+                            <div class="project-name">O aluno tem suas estatisticas. Professores tem estatisticas. E
+                                claro o enem tambem seu proprio grafico, para que você possa ver seu progresso.</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="{%static 'img/img_home/img3.jpeg'%}" title="Project Name">
+                        <img class="img-fluid" src="{%static 'img/img_home/img3.jpeg'%}" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Paginas compartilhadas</div>
+                            <div class="project-name">Paginas compartilhadas serve para varios propositos, um deles são
+                                as atividades
+                                que os professores podem passar, ou paginas de card's.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" href="{%static 'img/img_home/img2.jpeg'%}" title="Project Name">
+                        <img class="img-fluid" src="{%static 'img/img_home/img2.jpeg'%}" alt="..." />
+                        <div class="portfolio-box-caption">
+                            <div class="project-category text-white-50">Estude</div>
+                            <div class="project-name">Separe seus conteudos por paginas, crie simulados com base nos
+                                seus card's. Sim voce pode criar vc mesmo suas questões, ou gerar com a SOL. Aproveite.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to action-->
+    <section class="page-section bg-dark text-white">
+        <div class="container px-4 px-lg-5 text-center">
+            <h2 class="mb-4">Desenvolvedor</h2>
+            <p style="font-family: Arial, Helvetica, sans-serif;">Alan Morais</p>
+            <a href="https://github.com/AlanBMC/alanBMC">
+
+                <img src="{%static 'img/img_home/eu.jpg'%}" alt="" width="150" height="200"
+                    style="border-radius: 100px;">
+            </a>
+        </div>
+        <div class="container px-4 px-lg-5 text-center" style="margin-top: 5px;  ">
+            <a href="https://www.linkedin.com/in/alan-morais-4861322b0/"><i class="bi bi-linkedin"
+                    style="font-size: 40px; color: blue;"></i></a>
+            <a href="https://github.com/AlanBMC/alanBMC"><i class="bi bi-github"
+                    style="font-size: 40px; color: rgb(186, 186, 186); margin-left: 5px;"></i></a>
+        </div>
+    </section>
+    <!-- Contact-->
+
+    <!-- Footer-->
+    <footer class="bg-light py-5" id="contact">
+        <div class="container px-4 px-lg-5">
+            <div class="small text-center text-muted">Copyright &copy; 2024 - Company Cardy</div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SimpleLightbox plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="{% static 'javascript/js_home.js'%}"></script>
+
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+
+</html>
