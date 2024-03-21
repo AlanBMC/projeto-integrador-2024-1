@@ -17,7 +17,8 @@ Para este projeto foi usada as seguintes tecnologias.
 <div style="display: inline_block" align= "center"><br>
   <img height="25" width="80" src="https://img.shields.io/badge/Python-FFD43B?style=plastic&logo=python&logoColor=blue" alt="Python">
    <img height="25" width="80" src = "https://img.shields.io/badge/HTML5-E34F26?style=plastic&logo=html5&logoColor=white" alt="HTML5">
-  
+     <img height="25" width="80" src = "https://img.shields.io/badge/bootstrap5-E34F26?style=plastic&logo=bootstrap&logoColor=white" alt="BOOTSTRAP">
+
   <img height="25" width="80" src="https://img.shields.io/badge/CSS3-1572B6?style=plastic&logo=css3&logoColor=white" alt="CSS3">
   <img height="25" width="80" src="https://img.shields.io/badge/JavaScript-323330?style=plastic&logo=javascript&logoColor=F7DF1E" alt="JavaScript">
 <img height="25" width="80" src="https://img.shields.io/badge/amCharts-323330?style=plastic&logo=javascript&logoColor=F7DF1E" alt="JavaScript">
