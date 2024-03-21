@@ -62,10 +62,10 @@ WSGI_APPLICATION = 'flashcards.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Flashcards',
-        'USER': 'postgres',
-        'PASSWORD': 'moraesQW980303',
-        'HOST': 'localhost',  # Ou o endereço do seu servidor de banco de dados
+        'NAME': 'flashs',
+        'USER': 'admin',
+        'PASSWORD': 'YNNsWzNpanROKsW8gCt6dpOrfiUdLs6g',
+        'HOST': 'cntptvkf7o1s73e98fag-a.oregon-postgres.render.com',  # Ou o endereço do seu servidor de banco de dados
         'PORT': '5432',  # Porta padrão do PostgreSQL
     }
 }
