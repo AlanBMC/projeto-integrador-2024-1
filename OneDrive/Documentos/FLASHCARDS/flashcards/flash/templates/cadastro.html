@@ -67,20 +67,20 @@
 
 												<div class="form-group">
 													<input type="text" name="username" class="form-style"
-														placeholder="Nome" id="username" autocomplete="off">
+														placeholder="Nome" id="username" autocomplete="off" required>
 													<i class="input-icon uil uil-user"></i>
 												</div>
 												<div class="form-group mt-2">
 													<input type="text" name="arroba" class="form-style"
-														placeholder="Digite um arroba" id="arroba" autocomplete="off"
-														oninput="validateInput(this)">
+														placeholder="Digite um arroba" id="arroba" autocomplete="off" 
+														oninput="validateInput(this)" required>
 													<i class="input-icon uil uil-at"></i>
 												</div>
 
 												<div class="form-group mt-2">
 													<input type="password" name="password" class="form-style"
 														placeholder="Senha" id="password" autocomplete="off"
-														minlength="6" maxlength="12" onKeyUp="verificaForcaSenha();">
+														minlength="6" maxlength="12" onKeyUp="verificaForcaSenha();" required>
 													<i class="input-icon uil uil-lock-alt"></i>
 													<span id="password-status"></span>
 												</div>
@@ -92,7 +92,7 @@
 												</div>
 												<div class="form-group mt-2">
 													<input type="file" name="imagem_de_perfil" class="form-style"
-														id="img" autocomplete="off">
+														id="img" autocomplete="off" required>
 													<i class="input-icon uil uil-user"></i>
 												</div>
 												<div class="form-group mt-2">
