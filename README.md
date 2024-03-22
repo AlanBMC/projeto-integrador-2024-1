@@ -1,4 +1,4 @@
-# Projeto - FLASH'S CARD'S
+# Projeto - CARDY
 |  |  |
 |:-------------:|:------------------------------------------------------------:|
 |  <img src="logo2.jpg" width="150px"></br> 
@@ -6,10 +6,11 @@
 
 ## Visão geral
 O projeto final tem como objetivo testar as habilidades aprendidas no curso de capacitação da Cyber-Edux. Curso de cuiabá-MT de tecnologia.
-Flash Cards é um site para gestão escolar, com o objetivo de facilitar a vida do estudante.
-Temos:
-  *Flash's cards*
+Flash Cards é um site para gestão escolar, com o objetivo de facilitar a vida do estudante. Acompanhe os commits feitos do projeto [aqui](https://github.com/AlanBMC/FLASH-S)<br>
+Temos:<br>
+  *Flash's cards*<br>
   *Simulados* - Criados pelo usuario, professor ou pela nossa API com o gemini e um API sobre questões no geral.
+  
 ## Tecnologias usadas
 
 Para este projeto foi usada as seguintes tecnologias.
