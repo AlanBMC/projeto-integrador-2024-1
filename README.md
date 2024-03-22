@@ -9,7 +9,9 @@ O projeto final tem como objetivo testar as habilidades aprendidas no curso de c
 Flash Cards é um site para gestão escolar, com o objetivo de facilitar a vida do estudante. Acompanhe os commits feitos do projeto [aqui](https://github.com/AlanBMC/FLASH-S)<br>
 Temos:<br>
   *Flash's cards*<br>
-  *Simulados* - Criados pelo usuario, professor ou pela nossa API com o gemini e um API sobre questões no geral.
+  *Simulados*: Criados pelo usuario, professor ou pela nossa API com o gemini e um API sobre questões no geral.<br>
+  *Simulados enem*: questões do enem para que o usuario pratique de verdade para o enem. <br>
+  *Estatística*: Estatísticas tanto para seus proprios simulados, quanto para os alunos e o professor veja o progresso dos seus alunos. E claro para o enem tambem.
   
 ## Tecnologias usadas
 
