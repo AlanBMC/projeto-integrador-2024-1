@@ -5,112 +5,75 @@ Este guia destina-se a desenvolvedores interessados em contribuir com o projeto.
 
 ## Como Contribuir
 
-**Crie um clone do projeto**
-*Siga os passos:*
+**Crie um ambiente virtual**
+
  ```shell
+    python -m venv nome_do_venv
+    .\nome_do_venv\Scripts\activate
+```
+**Baixe os pacotes para o funcionamento do codigo**
+```shell
+    pip install django
+    pip install pillow
+    pip install genai
+    pip install google-generativeai
+```
+**Faça um clone da aplicação**
+
+```shell
     git clone https://github.com/AlanBMC/projeto-integrador-2024-1-CARDY.git
     git checkout -b nome-da-sua-branch
     git add .
     git commit -m "Breve descrição das alterações"
-    git push origin nome-da-sua-branch
     git remote add upstream https://github.com/AlanBMC/projeto-integrador-2024-1-CARDY.git
-    git fetch upstream
-    git checkout main
-    git merge upstream/main
-    git push origin main
-
-    #instale as seguites bibliotecas para o funcionamento correto do codigo.
-    pip install python
-    pip install django
-    pip install Pillow
+    git push origin nome-da-sua-branch
  ```
+
+
  ## Funções
  Todas as funções tem uma docstring para facilidar o uso dos proximos desenvolvedores.
 ```python
-
 def cadastro(request):
-
 def home(request):
-
 def login_user(request):
-
 def logout_view(request):
-
 def paginas(request, pagina_id):
-
 def add_pagina_card(request):
-
 def add_cards(request):
-
 def edit_cards(request):
-
 def delete_card(request):
-
 def simulado(request, simulado_id):
-
 def add_pagina_simulado(request):
-
 def questao_simulado(request):
-
 def edit_questao(request):
-
 def delete_questao(request):
-
 def checa_resposta_simulado(request):
-
 def enem(request, enem_d):
-
 def resposta_enem(request):
-
 def verifica_resposta(request, resposta_usuario, ano, dia, idioma):
-
 def processa_dados_enem(request, enem_dia_ano):
-
 def processar_dados_enem_para_grafico_dois(usuario, ano, dia):
-
 def configurar(request):
-
 def edit_paginas_conf(request):
-
 def edit_titulo_pg(request):
-
 def delete_pg(request):
-
 def estatisticas_simulado(request):
-
 def estatisticas_conteudo(request):
-
 def sol(request):
-
 def genai_configurar():
-
 def obter_e_traduzir_perguntas(dificuldade, categoria, id_pagina):
-
 def traduzir_texto(model, texto):
-
 def salvar_pergunta_resposta_na_pagina(id_pagina, texto_traduzido):
-
 def add_alunos(request):
-
 def paginas_compartilhadas_cards(request, pagina_compartilhada_id):
-
 def paginas_compartilhadas_simulados(request, pagina_compartilhada_id):
-
 def checa_resposta_simulado_prof(request):
-
 def estatisticas_prof(request):
-
 def processa_dados_estatisticas_prof(request):
-
 def processa_dados_estatisticas(request):
-
 def conteudo_geral(request, id_pagina):
-
 def conteudo_geral_enem(request, id_pagina):
-
 def conteudo_geral2(request, id_pagina):
-
-
 ```
 ## Modelagem de banco de dados
 
