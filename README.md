@@ -24,6 +24,8 @@ Para este projeto foi usada as seguintes tecnologias.
   <img height="25" width="80" src="https://img.shields.io/badge/JavaScript-323330?style=plastic&logo=javascript&logoColor=F7DF1E" alt="JavaScript">
 <img height="25" width="80" src="https://img.shields.io/badge/amCharts-323330?style=plastic&logo=javascript&logoColor=F7DF1E" alt="JavaScript">
 
+
+ <br>
  
 ## Bibliotecas / API'S
 <img height="25" width="80" src="https://img.shields.io/badge/Django-092E20?style=plastic&logo=django&logoColor=white" alt="Django">
@@ -31,18 +33,19 @@ Para este projeto foi usada as seguintes tecnologias.
 <img height="25" width="80" src="https://img.shields.io/badge/Google-GEMINI-FFD43B?style=plastic&logo=goole&logoColor=white" alt="Google">
   
 <img height="25" width="80" src="https://img.shields.io/badge/API-QUESTOES-FFD43B?style=plastic&logo=goole&logoColor=white" alt="API">
+<br>
 
 ## DATABASES
 <img height="30" width="110" src="https://img.shields.io/badge/PostgreSQL-316192?style=plastic&logo=postgresql&logoColor=white" alt="API">
 
 
+<br>
 
 ## FERRAMENTAS
 
-A ferramenta usada:
 <div style="display: block"><br>
 <img align="center" alt="Live Server" height="38" width="120" src="https://img.shields.io/badge/VScode-316192?style=plastic&logo=visual-studio-code&logoColor=blue">
-
+<br>
 
 ## Orientações
 
