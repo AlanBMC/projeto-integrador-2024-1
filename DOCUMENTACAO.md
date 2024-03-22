@@ -16,8 +16,9 @@ Este guia destina-se a desenvolvedores interessados em contribuir com o projeto.
     pip install django
     pip install pillow
     pip install genai
-    pip install google-generativeai
+    pip install google-generativeai #para fins de testes minha CHAVE API aberta.
 ```
+
 **Faça um clone da aplicação**
 
 ```shell
@@ -28,9 +29,33 @@ Este guia destina-se a desenvolvedores interessados em contribuir com o projeto.
     git remote add upstream https://github.com/AlanBMC/projeto-integrador-2024-1-CARDY.git
     git push origin nome-da-sua-branch
  ```
+# DATABASE
+Nesta aplicação é usado o banco de dados Postgree.
 
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Flashcards',
+        'USER': 'postgres',
+        'PASSWORD': '', #Use sua senha do postgree
+        'HOST': 'localhost',  # Ou o endereço do seu servidor de banco de dados
+        'PORT': '5432',  # Porta padrão do PostgreSQL
+    }
+}
+```
+*Caso nao tenha o postgree baixado, use o database padrão*
 
- ## Funções
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+```
+
+# Funções
  Todas as funções tem uma docstring para facilidar o uso dos proximos desenvolvedores.
 ```python
 def cadastro(request):
@@ -75,7 +100,7 @@ def conteudo_geral(request, id_pagina):
 def conteudo_geral_enem(request, id_pagina):
 def conteudo_geral2(request, id_pagina):
 ```
-## Modelagem de banco de dados
+# Modelagem de banco de dados
 
 Coloque aqui a modelagem do banco de dados desenvolvido no projeto. Você pode colocar diagramas conceituais e lógicos, ou até mesmo descrever textualmente o que cada uma das tabelas e atributos representam.
 
