@@ -33,11 +33,11 @@ Para este projeto foi usada as seguintes tecnologias.
 <img height="25" width="80" src="https://img.shields.io/badge/API-QUESTOES-FFD43B?style=plastic&logo=goole&logoColor=white" alt="API">
 
 ## DATABASES
-<img height="38" width="120" src="https://img.shields.io/badge/PostgreSQL-316192?style=plastic&logo=postgresql&logoColor=white" alt="API">
+<img height="30" width="110" src="https://img.shields.io/badge/PostgreSQL-316192?style=plastic&logo=postgresql&logoColor=white" alt="API">
 
 
 
-## Ferramenta
+## FERRAMENTAS
 
 A ferramenta usada:
 <div style="display: block"><br>
@@ -49,6 +49,7 @@ A ferramenta usada:
 Confira nossa [documentação](DOCUMENTACAO.md) e venha fazer parte desse grande projeto educacional.
 </div>
 </div>
+
 ## Sobre o autor
 
 <!-- Coloque seu nome, uma foto sua e uma pequena bio sobre você na seguinte tabela: -->
