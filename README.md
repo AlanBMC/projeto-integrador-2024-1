@@ -6,7 +6,7 @@
 
 ## Visão geral
 O projeto final tem como objetivo testar as habilidades aprendidas no curso de capacitação da Cyber-Edux. Curso de cuiabá-MT de tecnologia.
-Flash Cards é um site para gestão escolar, com o objetivo de facilitar a vida do estudante. Acompanhe os commits feitos do projeto [aqui](https://github.com/AlanBMC/FLASH-S)<br>
+CARDY é um site para gestão escolar, com o objetivo de facilitar a vida do estudante, aplicando tecnicas de estudos com flash cards e simulados, preparo para o enem e gerenciamento de tarefas dada pelos professores. Acompanhe os commits feitos do projeto [aqui](https://github.com/AlanBMC/FLASH-S)<br>
 Temos:<br>
   *Flash's cards*<br>
   *Simulados*: Criados pelo usuario, professor ou pela nossa API com o gemini e um API sobre questões no geral.<br>
