@@ -916,7 +916,7 @@ def genai_configurar():
     Retorno:
         - Um objeto do modelo generativo inicializado.
     """
-    genai.configure(api_key="AIzaSyC_-yuJYc59iZFcC91YpEdJvjMtbM4d2wE")
+    genai.configure(api_key="KEY_API")
     model = genai.GenerativeModel('gemini-pro')
     return model
 
